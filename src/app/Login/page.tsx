@@ -77,33 +77,87 @@ const Login = () => {
     <div>
       <Header />
       <div className="mb-20 flex justify-center">
-        <div className="mt-7 w-[40%] rounded-xl border border-solid border-gray-300">
+       
+
+
+
+
+
+
+
+
+      
+        
+           
+        
+       
+       {
+        isSignUp ? (<div className="mt-7 w-[40%] rounded-xl border border-solid border-gray-300">
+        <div className="p-5 text-center">
+          <h1 className="text-xl font-bold">
+            Create your account
+          </h1>
+        </div>
+          <div className="my-4 ml-5">
+            <p className="my-1">Name</p>
+            <input
+              className="h-8 w-[95%] rounded-md border border-solid border-gray-300 p-4"
+              type="text"
+              placeholder="Enter"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
+        <div className="my-4 ml-5">
+          <p className="my-1">Email</p>
+          <input
+            className="h-8 w-[95%] rounded-md border border-solid border-gray-300 p-4"
+            type="text"
+            placeholder="Enter"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <div className="my-4 ml-5">
+          <p className="my-1">Password</p>
+          <input
+            className="h-8 w-[95%] rounded-md border border-solid border-gray-300 p-4"
+            type={inputType}
+            placeholder="Enter"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />  
+          <p className="text-red-500">{error}</p>
+        </div>
+        <button
+          onClick={handleClick}
+          className="my-4 ml-5 w-[92%] rounded-md border border-solid border-gray-300 bg-black p-2 text-white"
+        >
+         CREATE ACCOUNT 
+        </button>
+        <p className="mb-20 ml-5 mt-4 text-center">
+             <>
+              Have an Account?
+              <span
+                className="ml-2 cursor-pointer font-semibold"
+                onClick={toggleSignUp}
+              >
+                LOGIN
+              </span>
+            </>
+        </p>
+      </div>) : (<div className="mt-7 w-[40%] rounded-xl border border-solid border-gray-300">
           <div className="p-5 text-center">
             <h1 className="text-xl font-bold">
-              {isSignUp ? "Create your account" : "Login"}
+             Login
             </h1>
           </div>
-
-          {isSignUp ? (
-            <div className="my-4 ml-5">
-              <p className="my-1">Name</p>
-              <input
-                className="h-8 w-[95%] rounded-md border border-solid border-gray-300 p-4"
-                type="text"
-                placeholder="Enter"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-            </div>
-          ) : (
             <div className="text-center">
               <h1 className="text-lg font-semibold">
                 Welcome back to ECOMMERCE
               </h1>
               <p className="text-sm">The next gen business marketplace</p>
             </div>
-          )}
-
           <div className="my-4 ml-5">
             <p className="my-1">Email</p>
             <input
@@ -127,7 +181,7 @@ const Login = () => {
               onClick={togglePasswordVisibility}
               className="relative bottom-7 left-[80%] px-2 underline"
             >
-              {showPassword ? "Hide" : "Show"}
+             Show
             </button>
 
             <p className="text-red-500">{error}</p>
@@ -139,19 +193,7 @@ const Login = () => {
           >
             {isSignUp ? "CREATE ACCOUNT" : "LOGIN"}
           </button>
-
           <p className="mb-20 ml-5 mt-4 text-center">
-            {isSignUp ? (
-              <>
-                Have an Account?
-                <span
-                  className="ml-2 cursor-pointer font-semibold"
-                  onClick={toggleSignUp}
-                >
-                  LOGIN
-                </span>
-              </>
-            ) : (
               <>
                 Don't have an Account?
                 <span
@@ -161,9 +203,11 @@ const Login = () => {
                   SIGN UP
                 </span>
               </>
-            )}
           </p>
-        </div>
+        </div>)
+       }
+       
+       
       </div>
     </div>
   );
