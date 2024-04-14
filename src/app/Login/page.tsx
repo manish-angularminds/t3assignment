@@ -47,6 +47,7 @@ const Login = () => {
     onSuccess() {
       const data = { email, password };
       loginFn(data);
+      alert("Successfully registered!!")
     },
   });
 
@@ -77,20 +78,6 @@ const Login = () => {
     <div>
       <Header />
       <div className="mb-20 flex justify-center">
-       
-
-
-
-
-
-
-
-
-      
-        
-           
-        
-       
        {
         isSignUp ? (<div className="mt-7 w-[40%] rounded-xl border border-solid border-gray-300">
         <div className="p-5 text-center">
